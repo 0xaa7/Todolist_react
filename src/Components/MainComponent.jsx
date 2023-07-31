@@ -12,6 +12,10 @@ const initialTodoList = [
     id: 2,
     name: 'Go to school',
   },
+  {
+    id: 2,
+    name: 'Go to school',
+  },
 ];
 
 const MainComponent = () => {
