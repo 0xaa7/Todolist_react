@@ -23,13 +23,32 @@ const MainComponent = () => {
     setTodoList((prevTodoList) => [...prevTodoList, newTask]);
   };
 
+  const editCallback = (id,name) => {
+    const newTaskName = prompt("Updated task name", name);
+    const allTask = Object.assign([], todolist);
+    
+    const position  = allTask.findIndex(el=>el.id === id);
+    allTask[position] ={
+      id:id,
+      name:newTaskName
+    };
+
+    setTodoList(allTask);
+
+  }
+
+  const deleteCallback = (id) => {
+    console.log(id);
+  }
+
+
   return (
     <div className="container">
       <div className="col-lg">
         <Card>
           <Card.Body>
             <AddTodo callback={callback} />
-            <TodoList tasks={todolist} />
+            <TodoList tasks={todolist} deleteCallback={deleteCallback} onEdit={editCallback} />
           </Card.Body>
         </Card>
       </div>

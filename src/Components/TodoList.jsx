@@ -1,7 +1,9 @@
 import React from 'react';
 import { Table, Button } from 'react-bootstrap';
 
-const TodoList = ({ tasks }) => {
+const TodoList = (props) => {
+
+
   return (
     <section className="todo-list">
       <Table striped bordered hover variant="dark">
@@ -9,22 +11,25 @@ const TodoList = ({ tasks }) => {
           <tr>
             <th>#</th>
             <th>Todo List</th>
-            <th colspan={2}>Actions</th>
+            <th colSpan={2}>Actions</th>
           </tr>
         </thead>
         <tbody>
-          {tasks.map((el, key) => {
+          {props.tasks.map((el, key) => {
             return (
               <tr key={key}>
                 <td>{key + 1}</td>
                 <td>{el.name}</td>
                 <td>
-                <Button variant="dark" id="button-addon2" >Edit</Button>
+                  <Button onClick={()=>props.onEdit(el.id, el.name)} variant="dark" id="button-addon2" >
+                    Edit
+                  </Button>
+                  </td>
+                  <td>
+                  <Button onClick={()=>props.deleteCallback(el.id)} variant="dark" id="button-addon2">
+                    Delete
+                  </Button>
                 </td>
-                <td>
-                <Button variant="dark" id="button-addon2" >Delete</Button>
-                </td>
-               
               </tr>
             );
           })}
