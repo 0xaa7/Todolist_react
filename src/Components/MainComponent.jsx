@@ -12,14 +12,11 @@ const initialTodoList = [
     id: 2,
     name: 'Go to school',
   },
-  {
-    id: 2,
-    name: 'Go to school',
-  },
+  
 ];
 
 const MainComponent = () => {
-  const [todolist, setTodoList] = useState(initialTodoList);
+  const [todolist, setTodoList] = useState([]);
 
   const callback = (task) => {
     const newTask = { id: Date.now(), name: task };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 const TodoList = ({ tasks }) => {
   return (
@@ -8,7 +8,8 @@ const TodoList = ({ tasks }) => {
         <thead>
           <tr>
             <th>#</th>
-            <th colSpan={3}>Todo List</th>
+            <th>Todo List</th>
+            <th colspan={2}>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -17,9 +18,17 @@ const TodoList = ({ tasks }) => {
               <tr key={key}>
                 <td>{key + 1}</td>
                 <td>{el.name}</td>
+                <td>
+                <Button variant="dark" id="button-addon2" >Edit</Button>
+                </td>
+                <td>
+                <Button variant="dark" id="button-addon2" >Delete</Button>
+                </td>
+               
               </tr>
             );
           })}
+          
         </tbody>
       </Table>
     </section>
