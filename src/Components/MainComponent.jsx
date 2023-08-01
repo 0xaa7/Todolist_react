@@ -38,8 +38,8 @@ const MainComponent = () => {
   }
 
   const deleteCallback = (id) => {
-    console.log(id);
-  }
+    setTodoList((prevTodoList) => prevTodoList.filter((task) => task.id !== id));
+  };
 
 
   return (
